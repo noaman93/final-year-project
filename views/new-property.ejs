@@ -1,0 +1,313 @@
+<% include ./partials/header %>
+
+<div class="container new-property-form">
+   <div class="row">
+      <!-- <div class="col-md-6">-->
+            <div class="well">
+                <h3>Add Information About Property You Want To Offer</h3>
+                <h5>PROPERTY TYPE AND LOCATION</h5>
+                <form action="/property" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                    
+                    
+                    <div class="form-group">
+                      <span class="col-sm-2 control-label"><strong>Property Type:</strong> </span>
+                       <div class="col-sm-10">
+                              
+                               <label class="radio-inline">
+                                    <input class="showPurpose homeOther hostelOther" id="com" data-id="school" name="property[propertyType]" value="commercial" type="radio">
+                                    Commercial
+                                </label>
+                                <label class="radio-inline">
+                                    <input id="home" data-id="homeDetails" class="showPurpose other hostelOther" name="property[propertyType]" value="home" type="radio">
+                                    Home
+                                </label>
+                                <label class="radio-inline">
+                                    <input data-id="plotAndHostel" id="plot" class="controlPurpose other homeOther hostelOther" name="property[propertyType]" value="plot" type="radio">
+                                    Plot
+                                </label>
+                                
+                                <label class="radio-inline">
+                                    <input data-id="landAr plotAndHostel" id="hostel" class="controlPurpose other homeOther" data-id="hostelRent" name="property[propertyType]" value="hostel" type="radio">
+                                    Hostel
+                                </label>
+                        </div>
+                    </div><!--form-group-->
+                    
+                    <div class="none" id="school">
+                        <div class="form-group">
+                           <span class="col-sm-2 control-label"><strong>Sub Type:</strong> </span>
+                       <div class="col-sm-1">
+                           <div class="radio">
+                              <label><input type="radio" name="property[subType]" value="shop">Shop</label>
+                            </div>
+                            <div class="radio">
+                              <label><input type="radio" name="property[subType]" value="office">Office</label>
+                            </div>
+                            </div>
+                            <div class="col-sm-3">
+                            <div class="radio">
+                              <label><input type="radio" name="property[subType]" value="factory">Factory</label>
+                            </div>
+                            <div class="radio">
+                              <label><input type="radio" name="property[subType]" value="plaza">Plaza</label>
+                            </div>
+                        </div> <!--col-->
+                        </div><!--form-group-->
+                    </div><!--none-->
+                    
+                    <div class="form-group" id="plotAndHostel">
+                      <span class="col-sm-2 control-label"><strong>Purpose:</strong> </span>
+                       <div class="col-sm-10">
+                                <label class="radio-inline">
+                                    <input name="property[purpose]" value="sale" type="radio">
+                                    For Sale
+                                </label>
+                                <label class="radio-inline">
+                                    <input name="property[purpose]" value="rent" type="radio">
+                                    Rent
+                                </label>
+                        </div>
+                    </div><!--form-group-->
+                    
+                    <div class="form-group">
+                        <label for="inputCity" class="col-sm-2 control-label">
+                            City:
+                        </label>
+                        <div class="col-sm-4">
+                            <select name="property[city]" class="form-control" id="inputCity">
+                                <option value="">Choose...</option>
+                                <option value="lahore">Lahore</option>
+                                <option value="faisalabad">Faisalabad</option>
+                                <option value="islamabad">Islamabad</option>
+                                <option value="karachi">Karachi</option>
+                                <option value="peshawar">Peshawar</option>
+                            </select>
+                        </div>
+                    </div><!--form-group-->
+                    
+                    <div class="form-group">
+                        <label for="inputLocation" class="col-sm-2 control-label">
+                            Location:
+                        </label>
+                        <div class="col-sm-7">
+                            <textarea class="form-control" name="property[location]" placeholder="Enter your property complete address here" id="inputLocation"></textarea>
+                        </div>
+                    </div><!--form-group-->
+                    
+                    <h5>PROPERTY DETAILS</h5>
+                    
+                    <div class="form-group">
+                        <label for="inputTitle" class="col-sm-2 control-label">
+                            PROPERTY TITLE:
+                        </label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" name="property[propertyTitle]" placeholder="Give your property a suitable title" id="inputTitle">
+                        </div>
+                    </div><!--form-group-->
+                    
+                    <div class="form-group">
+                        <label for="inputDescription" class="col-sm-2 control-label">
+                            DESCRIPTION:
+                        </label>
+                        <div class="col-sm-7">
+                            <textarea class="form-control" name="property[description]" placeholder="Tell users more about your property(Why is your property so great?)" id="inputDescription"></textarea>
+                        </div>
+                    </div><!--form-group-->
+                    
+                    
+                    <div id="homeDetails" class="none">
+                    <div class="form-group container">
+                       <div class="row">
+                        <label for="inputPrice" class="col-sm-2 control-label">
+                            Bed Rooms:
+                        </label>
+                        <div class="col-md-2 col-sm-3">
+                            <input type="number" class="form-control" name="property[propertyTypeDetails][bedRoom]" placeholder="Bed Rooms" id="inputPrice">
+                        </div>
+                        <label for="inputPrice" class="col-sm-2 control-label">
+                            Bath Rooms:
+                        </label>
+                        <div class="col-md-2 col-sm-3">
+                            <input type="number" class="form-control" name="property[propertyTypeDetails][bathRoom]" placeholder="Bath" id="inputPrice">
+                        </div>
+                        </div><!--row-->
+                    </div>
+                       
+                       <div class="form-group container">
+                        <div class="row">
+                        <label for="inputPrice" class="col-sm-2 control-label">
+                            Garage:
+                        </label>
+                        <div class="col-md-2 col-sm-3">
+                            <select class="form-control" name="property[propertyTypeDetails][garage]" id="">
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div><!--col-->
+                        
+                        <label for="inputPrice" class="col-sm-2 control-label">
+                            Number of Stories:
+                        </label>
+                        <div class="col-md-2 col-sm-3">
+                            <select class="form-control" name="property[propertyTypeDetails][numberOfStories]" id="">
+                                <option value="single">Single</option>
+                                <option value="double">Double</option>
+                                <option value="triple">Triple</option>
+                            </select>
+                        </div><!--col-->
+                        
+                        </div><!--row-->
+                    </div><!--form-group-->
+                    </div>
+                    
+                    <div id="landAr" class="form-group">
+                        <label for="inputArea" class="col-sm-2 control-label">
+                            LAND AREA:
+                        </label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" name="property[landArea]" placeholder="Enter land area" id="inputArea">
+                        </div>
+                    </div><!--form-group-->
+                    
+                    <div class="form-group">
+                        <label for="inputPrice" class="col-sm-2 control-label" id="priceLabel">
+                            PRICE:
+                        </label>
+                        <label id="hostelRent" for="inputPrice" class="col-sm-2 none control-label">
+                            Rent/Monts:
+                        </label>
+                        <div class="col-sm-4">
+                            <input type="number" class="form-control" name="property[price]" placeholder="Enter Price" id="inputPrice">
+                        </div>
+                    </div><!--form-group-->
+                    
+                    <h5>UPLOAD IMAGES</h5>
+                    
+                    <div class="form-group">
+<!--
+                      <label for="inputImage " class="col-sm-2 control-label">
+                          Image:
+                      </label>
+                       <div class="col-sm-5">
+                            <input class="form-control" type="text" name="property[image]" id="inputImage" placeholder="Enter image URL here">   
+                       </div>
+-->
+                         <label for="inputImage " class="col-sm-2 control-label">
+                          Upload Image:
+                      </label>
+                       <div class="col-sm-4">
+                            <input class="form-control" type="file" name="image" id="inputImage" >   
+                       </div>
+                    </div><!--form-group-->
+                    
+                    
+                    <h5>CONTACT DETAILS</h5>
+                    
+                    <div class="form-group">
+                        <label for="inputName" class="col-sm-2 control-label">
+                            NAME:
+                        </label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" name="property[ownerDetails][name]" placeholder="Enter full name" id="inputName">
+                        </div>
+                    </div><!--form-group-->
+                    
+                    <div class="form-group">
+                        <label for="inputMobile" class="col-sm-2 control-label">
+                            MOBILE PHONE:
+                        </label>
+                    <div class="col-sm-4 ">
+                            <input type="text" class="form-control" name="property[ownerDetails][mobileNumber]" placeholder="Your mobile number" id="inputMobile">
+                        </div>
+                    </div><!--form-group-->
+                    
+                    <div class="form-group">
+                        <label for="inputPhone" class="col-sm-2 control-label">
+                            HOME PHONE:
+                        </label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" name="property[ownerDetails][homeNumber]" placeholder="Your home phone number" id="inputPhone">
+                        </div>
+                    </div><!--form-group-->
+                    
+                    <div class="form-group">
+                        <label for="inputEmail" class="col-sm-2 control-label">
+                            CONTACT EMAIL:
+                        </label>
+                        <div class="col-sm-4">
+                            <input type="email" class="form-control" name="property[ownerDetails][contactEmail]" placeholder="Email address" id="inputEmail">
+                        </div>
+                    </div><!--form-group-->
+                    
+                    <button class="btn btn-primary">Add My Property</button>
+                    
+                </form>
+            </div><!--well-->
+        <!--</div>--><!--col-md-6-->
+    </div><!--row-->
+</div><!--container-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<div class="container">
+    <div class="row">
+
+        <h1 class="text-center">Create a new Property</h1>
+            <div style="width:30%; margin: 30px auto;">
+
+            <form action="/property" method="POST">
+                <div class="form-group"><input class="form-control" type="text" placeholder="title" name="property[title]"></div>
+                <div class="form-group"><input class="form-control" type="text" placeholder="adress" name="property[adress]"></div>
+                <div class="form-group"><input class="form-control" type="text" placeholder="city" name="property[city]"></div>
+                <div class="form-group"><input class="form-control" type="text" placeholder="enter image url" name="property[image]"></div>
+                <div class="form-group"><input class="form-control" type="text" placeholder="Description" name="property[description]"></div>
+                <div class="form-group"><input class="form-control" type="text" placeholder="purpose" name="property[purpose]"></div>
+                <div class="form-group">
+                    <select name="property[type]" id="">
+                        <option value="commercial">commercial</option>
+                        <option value="Residential">Residential</option>
+                    </select>
+                </div>
+                <div class="form-group"><button class="btn btn-lg btn-primary btn-block">Submit!!!</button></div>
+            </form>
+
+        <a href="/">Go Back!</a>
+        </div>
+    
+    </div>row
+
+</div>
+-->
+
+
+<% include ./partials/footer %>

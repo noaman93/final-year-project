@@ -1,0 +1,141 @@
+<% include ./partials/header %>
+
+<div class="outer" style="padding-top: 0;">
+<div class="headerBackground" style="padding-top: 30px;">
+<h1 class="heroHeading">Search properties for sale and to rent in the Pakistan</h1>
+<div class="container">
+   <div class="row">
+   <div class="col-md-8 col-sm-offset-2">
+    <div class="well formOnIndex">
+        <form action="/search" class="form-horizontal">
+        
+        <div class=" stylishRadio">
+        <div class="col-sm-7 col-sm-offset-1">
+        <input class="plotIndex" type="radio" id="radio3" name="but" value="" checked>
+           <label for="radio3" style="margin-bottom: 2px;">PROPERTIES</label>
+        <input class="realPlotIndex" data-id="propertyTypeIndex landAreaIndex purposeIndex"  type="radio" id="radio4" name="but"value="plot">
+            <label for="radio4" style="margin-bottom: 2px;">PLOTS</label>
+        <input data-id="rentMonthly purposeIndex" class="hostelIndex" type="radio" id="radio5" name="but"value="hostel">
+            <label for="radio5" style="margin-bottom: 2px;">HOSTELS</label>
+            </div><!--col-->
+         <hr class="hrIndex">
+            </div><!--stylishRadio-->
+            
+        <div  id="purposeIndex">
+         <div class="form-group stylishRadio">
+          <span class="col-md-2 control-label" ><strong>Purpose:</strong> </span>
+               <div class="col-md-10">
+               <input type="radio" id="radio1" name="purpose" value="sale">
+               <label for="radio1" style="margin-bottom: 3px;">For SALE</label>
+                <input type="radio" id="radio2" name="purpose"value="rent">
+                <label for="radio2" style="margin-bottom: 3px;">TO RENT</label> 
+
+                </div>
+            </div><!--form-group stylishRadio-->
+            </div><!--purposeIndex-->
+            
+            <div class="form-group">
+                <label for="inputCity" class="col-md-2 control-label">
+                    City:
+                </label>
+                <div class="col-md-8">
+                    <select name="city" class="form-control" id="inputCity">
+                        <option value="">---Select---</option>
+                        <option value="lahore">Lahore</option>
+                        <option value="faisalabad">Faisalabad</option>
+                        <option value="islamabad">Islamabad</option>
+                        <option value="karachi">Karachi</option>
+                        <option value="peshawar">Peshawar</option>
+                        <option value="multan">multal</option>
+                    </select>
+                </div>
+            </div><!--form-group-->            
+            
+            
+            <div class="form-group ">
+               <div class="" id="propertyTypeIndex">
+                <label for="inputtype" class="control-label col-md-2 ">
+                    Property Type:
+                </label>
+               
+                   <div class="col-md-3">
+                    <select name="type" class="form-control " id="inputtype">
+                        <option value="">Any</option>
+                        <option value="home">---Residential---</option>
+                        <option value="home">Home</option>
+                        <option value="commercial">---Commercial---</option>
+                        <option value="shop">Shop</option>
+                        <option value="office">Office</option>
+                        <option value="plaza">Plaza</option>
+                        <option value="factory">Factory</option>
+                    </select>
+                    </div><!--col-sm-6-->
+                </div><!--none propertyTypeIndex-->
+            
+                <div class="none" id="rentMonthly">
+                <label for="inputMax" class="control-label col-md-2" >
+                Rent/Month:
+                </label>
+                </div><!--rentMonthly-->
+                
+                <label id="maxPrice" for="inputMax" class="control-label col-md-2" >
+                Max Price:
+                </label>
+                   <div class="col-md-3">
+                    <input type="number" class="form-control" name="price" placeholder="Enter Max Price" id="inputMax">
+               </div><!--col-sm-10-->
+               
+               <div class="none" id="landAreaIndex">
+               <label for="inputLandArea" class="control-label col-md-2" >
+                Land Area:
+                </label>
+                   <div class="col-md-3">
+                    <input type="number" class="form-control" name="landArea" placeholder="Size in Marlas" id="inputLandArea">
+               </div><!--col-sm-10-->
+               </div><!--landAreaIndex-->
+               
+             </div><!--form-group-->
+            
+            <div style="margin-left:0%;" class="form-group">
+                <button class="control-label btn btn-primary">Search Property</button>
+            </div>
+        </form><!--form-->
+    </div><!--well-->
+    </div><!--col-sm-6-->
+    </div><!--row-->
+</div><!--container-->
+<h1 class="heroHeadingBottom">Search properties for sale and to rent in the Pakistan</h1>
+
+</div><!--headerBackground-->
+</div><!--outer-->
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-1">
+           <% property.forEach(function(prop){ %>
+            <div class="eachRow row">
+                <div class="me col-sm-6">
+                    <img class="search-image " src="<%= prop.image %>" alt="">
+                </div>
+                <div class="col-sm-6 search-block" >
+                     <p class="propTitle"><%= prop.propertyTitle.substring(0,27) %>...</p>
+                     <p class="propLocation"><%= prop.location.substring(0,41) %>...</p>
+                     <p class="propPrice">Rs,<%= prop.price %></p>
+                     <p class="propDescription"><%= prop.description.substring(0,100) %>.....</p>
+                     <a href="/property/<%= prop._id %>" class="btn btn-primary">More Details</a>
+                     <a href="#" class="btn btn-primary pull-right contactOwner">Contact Owner</a>
+                     
+                </div>
+                <p class="date pull-right">Posted On:<%= prop.created.toDateString() %></p>
+            </div><!--row-->
+            <% }); %>
+        </div>
+    </div><!--outer row-->
+</div><!--container-->
+
+ 
+ 
+<% include ./partials/footer %>

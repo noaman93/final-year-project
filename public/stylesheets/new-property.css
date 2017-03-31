@@ -1,0 +1,25 @@
+
+h3 {
+    margin-left: 35px;
+}
+
+h5 {
+/*    background-color: aqua;*/
+    background: #006DA5;
+/*    padding-left: 107px;*/
+    padding: 15px 15px 15px 35px;
+    color: white;
+}
+
+button {
+    margin-left: 17.2%;
+}
+
+
+.new-property-form {
+    padding-top: 20px;
+}
+
+.none {
+    display:none;
+}
