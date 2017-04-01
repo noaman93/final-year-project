@@ -108,6 +108,7 @@ router.get("/search", function(req,res){
         
 //QUERY BUILDING
             var query={};
+        
             if(req.query.purpose){
                 query.purpose= req.query.purpose;
             }
@@ -117,7 +118,9 @@ router.get("/search", function(req,res){
             }
             
             if(req.query.price){
-                query.price = req.query.price;
+                var val = Number(req.query.price);
+                query.price = { $lte : val} ;
+//                query.price = req.query.price;
             }
             if(req.query.landArea){
                 query.landArea = req.query.landArea;
@@ -147,7 +150,7 @@ router.get("/search", function(req,res){
                 }
 //                console.log(notFound);
 //                res.send(docs);
-                res.render("search-result",{notFound: notFound, property:docs, title:title, purpose:req.query.purpose, city:req.query.city, type:req.query.type, price:req.query.price, landArea: req.query.landArea});
+                res.render("search-result",{ notFound: notFound, property:docs, title:title, purpose:req.query.purpose, city:req.query.city, type:req.query.type, price:req.query.price, landArea: req.query.landArea});
             }
             
             

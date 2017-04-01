@@ -30,9 +30,15 @@
                 <label  for="inputMax" class="control-label col-md-2" > <!--id="maxPrice"-->
                 Max Price:
                 </label>
-                   <div class="col-md-2">
+                <% if(price){ %>
+                <div class="col-md-2">
                     <input type="number" class="form-control" name="price" value="<%= price %>" placeholder="Enter Max Price" id="inputMax">
-               </div><!--col-sm-10-->
+               </div><!--col-sm-2-->
+               <% } else { %>
+                   <div class="col-md-2">
+                    <input type="number" class="form-control" name="price"  placeholder="Enter Max Price" id="inputMax">
+               </div><!--col-sm-2-->
+               <% } %>
                
             </div><!--form-group-->
             
@@ -99,7 +105,15 @@
                 <div class="col-sm-6 search-block" >
                      <p class="propTitle"><%= prop.propertyTitle.substring(0,27) %>...</p>
                      <p class="propLocation"><%= prop.location.substring(0,41) %>...</p>
-                     <p class="propPrice">Rs,<%= prop.price %></p>
+                     <% if(prop.purpose == "sale"){%>
+                     <p class="propPrice">
+                     Rs, <%= prop.price %>
+                     </p><!--propPrice-->
+                     <% } else { %>
+                     <p class="propPrice">
+                     Rent/Month <%= prop.price %>
+                     </p><!--propPrice-->
+                     <% } %>
                      <p class="propDescription"><%= prop.description.substring(0,100) %>.....</p>
                      <a href="/property/<%= prop._id %>" class="btn btn-primary">More Details</a>
                      <a href="#" class="btn btn-primary pull-right contactOwner">Contact Owner</a>

@@ -38,7 +38,15 @@
                 <div class="col-sm-6 search-block" >
                      <p class="propTitle"><%= prop.propertyTitle.substring(0,27) %>...</p>
                      <p class="propLocation"><%= prop.location.substring(0,41) %>...</p>
-                     <p class="propPrice">Rs,<%= prop.price %></p>
+                     <% if(prop.purpose == "sale"){%>
+                     <p class="propPrice">
+                     Rs, <%= prop.price %>
+                     </p><!--propPrice-->
+                     <% } else { %>
+                     <p class="propPrice">
+                     Rent/Month <%= prop.price %>
+                     </p><!--propPrice-->
+                     <% } %>
                      <p class="propDescription"><%= prop.description.substring(0,100) %>.....</p>
                      <a href="/property/<%= prop._id %>" class="btn btn-primary">More Details</a>
                      <a href="#" class="btn btn-primary pull-right contactOwner">Contact Owner</a>
