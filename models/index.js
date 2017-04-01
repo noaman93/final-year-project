@@ -11,7 +11,7 @@ var propertySchema = new mongoose.Schema({
     description: String,
     price: Number,
     landArea: Number,
-    image: String,
+    image: [],
 //    author:{
 //        id:{
 //            type:mongoose.Schema.Types.ObjectId,

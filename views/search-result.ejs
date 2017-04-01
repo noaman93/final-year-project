@@ -94,7 +94,7 @@
            <% property.forEach(function(prop){ %>
             <div class="eachRow row">
                 <div class="me col-sm-6">
-                    <img class="search-image " src="<%= prop.image %>" alt="">
+                    <img class="search-image " src="<%= prop.image[0] %>" alt="Here image">
                 </div>
                 <div class="col-sm-6 search-block" >
                      <p class="propTitle"><%= prop.propertyTitle.substring(0,27) %>...</p>

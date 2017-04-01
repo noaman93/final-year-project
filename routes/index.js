@@ -6,6 +6,7 @@ var middleware  = require("../middleware/middleware.js");
 var User = require("../models/users.js");
 var multer = require('multer');
 
+
 var storage =   multer.diskStorage({
   destination: function(req, file, callback) {
     callback(null, './public/uploads');
@@ -14,7 +15,7 @@ var storage =   multer.diskStorage({
     callback(null, Date.now() + file.originalname);
   }
 });
-var upload = multer({ storage : storage}).single('image');
+var upload = multer({ storage : storage}).any();
 
 //INDEX ROUTE
 router.get("/",function(req,res){
@@ -42,12 +43,25 @@ router.post("/property", function(req,res){
     
     upload(req,res,function(err) {
         if(err) {
-//            return res.send("Error uploading file.");
+//          Comment  return res.send("Error uploading file.");
             return res.send(err);
         }
-        var image = "/uploads/" + req.file.filename;
-//        console.log(req.file.filename);
+        //IN case single upload image method
+//        var image = "/uploads/" + req.file.filename;
+//        req.body.property.image = image;
+        
+        //In multiple image Multer method
+        var i =0;
+        var image = [];
+        req.files.forEach(function(one){
+//            console.log(one);
+//            console.log(one.filename);
+            image[i] = "/uploads/" + one.filename;
+            i++;
+        });
+//        console.log(image); show the array of all uploaded images
         req.body.property.image = image;
+
 //        console.log(req.body.property);
        Property.create(req.body.property,function(err,newlyCreated){
         if(err){
@@ -59,8 +73,8 @@ router.post("/property", function(req,res){
                 } else {
                     foundUser.properties.push(newlyCreated);
                     foundUser.save();
-//                    console.log(newlyCreated);
-//                    console.log(foundUser);
+                   console.log(newlyCreated);
+//                   Comment console.log(foundUser);
                 }
             });
             res.redirect("/profile");        
@@ -108,6 +122,11 @@ router.get("/search", function(req,res){
             if(req.query.landArea){
                 query.landArea = req.query.landArea;
             }
+//If Plots or Hostels selected then make purpose to  null
+        if(req.query.type == "plot" || req.query.type == "hostel"){
+            //deletes key named purpose from our query object
+            delete query.purpose;
+        }
 
 //HANDLING SUB TYPE LOGIC
         if(req.query.type){
