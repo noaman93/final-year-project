@@ -163,7 +163,10 @@ router.get("/search-result", function(req,res){
     res.render("search-result");
 });
 
-//MORE DETAILS ROUTE
+
+//======================
+//    Property Details
+//======================
 router.get("/property/:id", function(req,res){
     var title = "Property Details";
     Property.findById(req.params.id , function(err, found){
@@ -192,6 +195,23 @@ router.get("/profile", function(req,res){
     });
     
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

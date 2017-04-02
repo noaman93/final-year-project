@@ -89,7 +89,12 @@ $( document ).ready(function() {
 });
 
 
-
+//=========================
+//    property detail slider
+//=========================
+$(document).ready(function() {
+    $('.pgwSlider').pgwSlider();
+});
 
 
 //=========================
