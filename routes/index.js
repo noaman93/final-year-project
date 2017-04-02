@@ -25,6 +25,8 @@ router.get("/",function(req,res){
             console.log(err);
         } else {
 //            console.log(req.user);
+            
+            
             res.render("index", {property: found, title: title});
         }
     });
@@ -185,17 +187,67 @@ router.get("/property/:id", function(req,res){
 //====================
 
 router.get("/profile", function(req,res){
+    var message;
     User.findById(req.user._id).populate("properties").exec(function(err,foundUser){
         if(err){
             console.log(err);
         } else {
 //            console.log(foundUser);
-            res.render("profile", {title: req.user.username, user: foundUser, nameOfUser: req.user.username.toUpperCase()});
+            if(foundUser.properties.length == 0){
+                message = "You have post zero properties. To add new property click ADD PROPERTY button";
+            }
+            res.render("profile", {message: message, title: req.user.username, user: foundUser, nameOfUser: req.user.username.toUpperCase()});
         }
     });
     
 });
 
+//My properties on profile page
+router.get("/profile/my-properties", function(req,res){
+    var message;
+    User.findById(req.user._id).populate("properties").exec(function(err,foundUser){
+        if(err){
+            console.log(err);
+        } else {
+//            console.log(foundUser);
+            if(foundUser.properties.length == 0){
+                message = "You have post zero properties. <br> To add new property click ADD PROPERTY button";
+            }
+            res.render("profile", {message: message, title: req.user.username, user: foundUser, nameOfUser: req.user.username.toUpperCase()});
+        }
+    });
+});
+
+//Edit Profile page
+router.get("/profile/:id/edit", function(req,res){
+    User.findById(req.params.id, function(err, foundUser){
+        if(err){
+            console.log(err);
+        } else {
+            res.render("edit-profile",{title: foundUser.username, user: foundUser});   
+        }
+    });
+    
+});
+
+//Edit PUT Request
+router.put("/profile/:id", function(req,res){
+    var val = {userType: req.body.userType,
+                firstName : req.body.firstName,
+                lastName : req.body.lastName,
+                email : req.body.email,
+                phoneNumber : req.body.phoneNumber
+               }
+    User.findByIdAndUpdate(req.params.id, val , function(err, updatedUser){
+        if(err){
+            console.log(err);
+        } else {
+            console.log(updatedUser);
+            res.redirect("/profile/" + updatedUser._id + "/edit");
+        }
+    });
+//    res.send("You hit PUT");
+});
 
 
 

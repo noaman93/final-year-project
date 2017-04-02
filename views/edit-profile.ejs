@@ -1,0 +1,125 @@
+<% include ./partials/header %>
+
+<nav class="navbar navbar-inverse sidebar" role="navigation">
+    <div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">MY PROFILE</a>
+		</div>
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li ><a href="/">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
+				<li ><a href="/profile/my-properties">My Properties<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
+				<li ><a href="/profile/edit">Edit Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+
+<div class="main" style="padding-top:30px;" >
+<!-- Content Here -->
+<div class="container well " style="padding-top:30px;">
+           <p style="font-weight: 700;font-size: 2.3em;padding-bottom:10px;">Edit Your Personal Information</p>
+           <hr>
+            <form action="/profile/<%= user._id%>?_method=PUT" method="POST" >
+                <div class="form-group">
+                   <%if(user.userType == "privateOwner"){%>
+                    <label class="radio-inline">
+                        <input value="privateOwner" name="userType" type="radio" checked>
+                        Private Owner
+                    </label>
+                    <%} else {%>
+                    <label class="radio-inline">
+                        <input value="privateOwner" name="userType" type="radio" >
+                        Private Owner
+                    </label>
+                    <%}%>
+                    <%if(user.userType == "realEstateAgent"){%>
+                    <label class="radio-inline">
+                        <input value="realEstateAgent" name="userType" type="radio" checked>
+                        Real Estate Agent
+                    </label>
+                    <%} else {%>
+                    <label class="radio-inline">
+                        <input value="realEstateAgent" name="userType" type="radio">
+                        Real Estate Agent
+                    </label>
+                    <%}%>
+                </div><!--form-group-->
+                
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label for="inputFirstName">First Name:</label>
+                            <input type="text" value="<%= user.firstName%>" name="firstName" id="inputFirstName" placeholder="First Name" class="form-control">
+                        </div><!--form-group-->
+                    </div><!--col-md-5-->
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label for="inputLastName">Last Name:</label>
+                            <input type="text" value="<%= user.lastName%>" name="lastName" id="inputLastName" placeholder="Last Name" class="form-control">
+                        </div><!--form-group-->
+                    </div><!--col-md-5-->
+                </div><!--row-->
+                
+<!--
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label for="inputUsername">User Name:</label>
+                            <input type="text" value="<%= //user.username%>" name="username" id="inputUsername" class="form-control" placeholder="User Name">
+                        </div>form-group
+-->
+<!--                    </div>col-->
+                
+<!--
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label for="inputPassword">Password</label>
+                            <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password">
+                        </div>form-group
+-->
+                    <!--</div>--><!--col-->
+                <!--</div>--><!--row-->
+                
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label for="inputEmail">Your Email Address:</label>
+                            <input type="email" value="<%= user.email%>" name="email" id="inputEmail" placeholder="noaman@gmail.com" class="form-control">
+                        </div><!--form-group-->
+                    </div><!--col-md-6-->
+                </div><!--row-->
+                
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label for="inputPhone">Phone Number(Optional)</label>
+                            <input type="number" value="<%= user.phoneNumber%>" name="phoneNumber" id="inputPhone" class="form-control" placeholder="03xxxxxxxxx">
+                        </div><!--form-group-->
+                    </div><!--col-->
+                    
+                </div><!--row-->
+                
+                <div class="row">
+                    <div class="col-sm-12 ">
+                        <div class="form-group">
+                            <input class="btn btn-primary" type="submit" value="Register My Account">
+                        </div><!--form-group--> 
+                    </div><!--col--> 
+                </div><!--row-->
+                
+            </form>
+</div><!--container-->
+</div><!--main-->
+
+<% include ./partials/footer %>
+

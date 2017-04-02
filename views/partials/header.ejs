@@ -44,8 +44,9 @@
        <% if(!currentUser){%>
         <li><a href="/login"><span class="add-property"><span class="glyphicon glyphicon-user"></span> Login/Register</span></a></li>
         <% } else { %>
-<!--        <p class="navbar-text ">Signed in as <a href="/profile" class="navbar-link"><%= currentUser.username.toUpperCase() %></a></p>-->
-        <li><a href="/profile"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> <%= currentUser.username %></a></li>
+<!--        <p class="navbar-text ">Signed in as <a href="/profile" class="navbar-link"><%= //currentUser.username.toUpperCase() %></a></p>-->
+        <li><a href="/profile">PROFILE</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> <%= currentUser.username.toUpperCase() %></a></li>
         <li><a href="/logout">Logout</a></li>
         <% } %>
         <li><a href="/property/new" ><span class="add-property"><span class="glyphicon glyphicon-plus " aria-hidden="true"></span>ADD Property</span></a></li>
