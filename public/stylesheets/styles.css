@@ -27,11 +27,39 @@ Navbar
     border: none;
 }
 
-.navbar .collapse .navbar-right li a, .navbar .navbar-header a,
-.navbar .collapse .navbar-right .navbar-text,.navbar .collapse .navbar-right .navbar-text a
-{
+/*
+.navbar-default .navbar-nav > li > a , .navbar-default .navbar-brand {
     color: white;
 }
+*/
+
+.navbar-default .navbar-brand {
+    color: white;
+}
+
+.navbar .navbar-nav li a {
+    color: white;
+    font-weight: 600;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+    color: #F49032;
+}
+
+.navbar .navbar-right li a:hover {
+    color: #F49032;
+}
+
+.navbar .navbar-nav li a span:hover {
+    background-color:  rgba(244, 144, 50, 0.9);
+    color: white;
+}
+
+.navbar-default .navbar-brand:hover {
+    color: white;
+}
+
+
 
 body { 
     padding-top: 50px;
@@ -71,7 +99,11 @@ body {
     font-size: 2.5em;
     text-shadow: 2px 2px 0 rgba(0,0,0,0.25);
     padding-left: 50px;
-    padding-bottom: 1.5em;
+    padding-top: 25px;
+    padding-bottom: 0.78em;
+    position: absolute;
+    top: 440px;
+    width:100%;
 }
 
 .hrIndex {
@@ -245,6 +277,27 @@ Main Body Content
     font-weight: 700;
 }
 
+/*
+=======================
+   Media Queries
+=======================
+*/
+
+@media only screen and (max-width: 1000px) {
+    .heroHeadingBottom {
+/*
+        position: absolute;
+        top: 1.4em;;
+        padding: 0;
+        font-weight: 400;
+        
+*/
+        display: none;
+        
+    }
+    
+   
+}
 
 
 

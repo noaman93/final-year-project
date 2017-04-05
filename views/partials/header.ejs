@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="/stylesheets/login.css">
     <link rel="stylesheet" href="/stylesheets/profile.css">
     <link rel="stylesheet" href="/stylesheets/pgwslider.css">
+    <!--Font awesome-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--Google Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,700i,800" rel="stylesheet">
     <title><%= title %></title>
@@ -36,8 +38,10 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        
-        
+       <% if(currentUser){%>
+        <span style="font-weight:600; color:white;" class="navbar-text">Welcome <%= currentUser.username.toUpperCase() %></span>
+        <% } %>
+        <li ><a  href="#">Blog</a></li>
       </ul>
      
       <ul class="nav navbar-nav navbar-right">
@@ -45,8 +49,7 @@
         <li><a href="/login"><span class="add-property"><span class="glyphicon glyphicon-user"></span> Login/Register</span></a></li>
         <% } else { %>
 <!--        <p class="navbar-text ">Signed in as <a href="/profile" class="navbar-link"><%= //currentUser.username.toUpperCase() %></a></p>-->
-        <li><a href="/profile">PROFILE</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> <%= currentUser.username.toUpperCase() %></a></li>
+        <li><a href="/profile"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> PROFILE</a></li>
         <li><a href="/logout">Logout</a></li>
         <% } %>
         <li><a href="/property/new" ><span class="add-property"><span class="glyphicon glyphicon-plus " aria-hidden="true"></span>ADD Property</span></a></li>
