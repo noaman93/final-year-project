@@ -18,6 +18,11 @@ Navbar
     padding: 10px;
     border: 1px solid gray;
     border-radius: 30px;
+    font-size:0.85em;
+}
+
+.navbar-text {
+    font-size:1.2em;
 }
 
 .navbar-default {
@@ -40,6 +45,7 @@ Navbar
 .navbar .navbar-nav li a {
     color: white;
     font-weight: 600;
+    font-size:1.2em;
 }
 
 .navbar-default .navbar-nav>li>a:hover {
@@ -62,6 +68,11 @@ Navbar
  .navbar-default .navbar-nav>li.hmm>a:hover {
     color: white;
 }
+
+.blo {
+/*    margin-left: 50px;*/
+}
+
 
 
 
@@ -240,11 +251,10 @@ Main Body Content
 }
 
 .date {
-/*
-    position: relative;
-    top: 20px;
-*/
-    font-weight: 600; 
+    position: absolute;
+    bottom: -10px;
+    right: 0px;
+    font-weight: 800; 
 }
 
 .dateOnProfilePage {
@@ -279,6 +289,10 @@ Main Body Content
 
 .bold {
     font-weight: 700;
+}
+
+.relative {
+    position: relative;
 }
 
 /*
