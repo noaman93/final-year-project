@@ -59,6 +59,10 @@ Navbar
     color: white;
 }
 
+ .navbar-default .navbar-nav>li.hmm>a:hover {
+    color: white;
+}
+
 
 
 body { 
