@@ -15,7 +15,7 @@ Navbar
     background: #F49032;
 /*    background: #F12330;*/
 /*    background: #D54A50;*/
-    padding: 10px;
+    padding: 8px;
     border: 1px solid gray;
     border-radius: 30px;
     font-size:0.85em;
@@ -287,13 +287,27 @@ Main Body Content
     font-weight: 400;
 }
 
+.relative {
+    position: relative;
+}
+
+/*
+=======================
+   Property Details
+=======================
+*/
+
 .bold {
     font-weight: 700;
 }
 
-.relative {
-    position: relative;
+.colorBlack {
+    color: black;
 }
+
+
+
+
 
 /*
 =======================

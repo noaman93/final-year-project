@@ -8,15 +8,16 @@
                 <ul class="pgwSlider " >
                    <% property.image.forEach(function(prop){ %>
                     <li>
-                    <img src="<%= prop %>" alt="Paris, France" data-description="Eiffel Tower and Champ de Mars">
+<!--                    <img src="<%= prop %>" alt="Paris, France" data-description="Eiffel Tower and Champ de Mars">-->
+                    <img src="<%= prop %>" >
                     </li>
                     <% }); %>
                 </ul>
             </div><!--col-->
         </div><!--row-->
-        <div class="detail-content">
+        <div class="detail-content colorBlack">
             <h1><%= property.propertyTitle %></h1>
-            <p><%= property.location %></p>
+            <p><i class="fa fa-map-marker" aria-hidden="true"></i> <%= property.location %></p>
             <hr>
             
             <!--Rs vs Monthly REnt-->
@@ -36,16 +37,16 @@
             
             <!--If propertyType is "home"-->
             <% if(property.propertyType == "home"){%>
-                <p>Bed Rooms: <%= property.propertyTypeDetails.bedRoom %></p>
-                <p>Bath Rooms: <%= property.propertyTypeDetails.bathRoom %></p>
-                <p>Number Of Stories: <%= property.propertyTypeDetails.numberOfStories %></p>
-                <p>Car Garage: <%= property.propertyTypeDetails.garage %></p>
+                <p><span class="bold">Bed Rooms: </span><%= property.propertyTypeDetails.bedRoom %></p>
+                <p><span class="bold">Bath Rooms: </span><%= property.propertyTypeDetails.bathRoom %></p>
+                <p><span class="bold">Number Of Stories: </span><%= property.propertyTypeDetails.numberOfStories %></p>
+                <p><span class="bold">Car Garage: </span><%= property.propertyTypeDetails.garage %></p>
             <%}%>
             
-            <p>Land Area: <%= property.landArea %></p>
+            <p><span class="bold">Land Area: </span><%= property.landArea %></p>
             <div class="row">
                 <div class="col-sm-4">
-                    <p>Description: <br> <%= property.description %></p>
+                    <p><span class="bold">Description: </span><br> <%= property.description %></p>
                 </div><!--col-->
             </div><!--row-->
             

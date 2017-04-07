@@ -104,7 +104,7 @@
                 </div>
                 <div class="col-sm-6 search-block" >
                      <p class="propTitle"><%= prop.propertyTitle.substring(0,27) %>...</p>
-                     <p class="propLocation"><%= prop.location.substring(0,41) %>...</p>
+                     <p class="propLocation"><i class="fa fa-map-marker" aria-hidden="true"></i> <%= prop.location.substring(0,41) %>...</p>
                      <% if(prop.purpose == "sale"){%>
                      <p class="propPrice">
                      Rs, <%= prop.price %>

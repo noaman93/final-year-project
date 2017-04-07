@@ -171,6 +171,8 @@ Custom styles
 /*    background-color: #006DA5;*/
 /*    background-color: #2C3E50;*/
 /*    background-color: white;*/
+/*    background-color: black;*/
+/*    background-color: rgba(50, 50, 93, 0.9);*/
 }
 
 .navbar-inverse .navbar-nav>li>a {
@@ -178,7 +180,8 @@ Custom styles
 }
 
 .navbar-inverse .navbar-nav>li>a:hover {
-    color: #2C3E50;
+/*    color: #2C3E50;*/
+    color: #F49032;
 }
 
 
