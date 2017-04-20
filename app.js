@@ -16,10 +16,15 @@ mongoose.connect(url);
 //REQUIRING MODELS
 var Property = require("./models/index");
 var User     = require("./models/users");
+var Blog     = require("./models/blogSchema");
+var Comment  = require("./models/commentSchema");
     
 //REQUIRING ROUTES
 var indexRoutes = require("./routes/index");
 var loginRoutes = require("./routes/auth/auth");
+var commentRoutes  = require("./routes/comment/commentRoutes");
+var blogRoutes  = require("./routes/blog/blog");
+
     
 //APP CONFIGURATION  
 app.use(bodyParser.urlencoded({extended : true}));
@@ -53,6 +58,9 @@ app.use(function(req,res,next){
 //USING ROUTES
 app.use(indexRoutes);
 app.use(loginRoutes);
+app.use(commentRoutes);
+app.use(blogRoutes);
+
 
 //CREATE NEW PROPERTY
 //Property.create({title:"First Property",

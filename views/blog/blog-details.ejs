@@ -1,0 +1,41 @@
+<% include ../partials/header-white-background %>
+
+<div class="container">
+   <div class="well" style="background-color:white;">
+    <div class="row">
+            <div class="col-sm-6">
+                <img src="<%= blog.image %>" style="width:100%; height:50%;" alt="">
+            </div>
+        </div><!--row-->
+        
+        <div class="row">
+            <div class="col-sm-6" style="margin-bottom:10px;">
+                <h1 style="font-weight: 700;"><%= blog.title %></h1>
+                <p><%= blog.created.toDateString() %></p>
+                <p><%= blog.body %></p>
+                <a href="/property-blog" class="btn btn-primary btn-lg" style="border-radius:2px;">Go Back </a>
+            </div>
+        </div><!--row-->
+   
+    </div><!--well-->
+    
+    <div class="well">
+        <form action="/property-blog/<%= blog._id %>/comments" method="POST">
+            <div class="form-group">
+                <input type="text" name="comment[text]" placeholder="Enter Your Comment Here" class="form-control">
+            </div>
+        <div class="form-group">
+       <button class="btn btn-default" style="margin-left:0;"><strong>Add New Comment</strong></button>
+        </div>
+        </form>
+        
+        <% blog.comments.forEach(function(comment){ %>
+            <p><strong><%= comment.author.username %></strong></p>
+            <p><%= comment.text %></p>
+        <%})%>
+        
+    </div><!--well-->
+</div>
+
+
+<% include ../partials/footer %>
