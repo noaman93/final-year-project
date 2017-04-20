@@ -37,6 +37,17 @@ router.post("/property-blog/:id/comments",middleware.isLoggedIn, function(req,re
     });
 });
 
+//DELETE ROUTE
+router.delete("/property-blog/:id/comment/:comment_id", function(req,res){
+    Comment.findByIdAndRemove(req.params.comment_id, function(err){
+        if(err){
+            console.log(err);
+        } else {
+            res.redirect("/property-blog/" + req.params.id);
+        }
+    });
+});
+
 //RENDER NEW COMMENT FORM
 //router.get("/property-blog/:id/comments/new", function(req,res){
 //    Blog.findById(req.params.id, function(err,found){

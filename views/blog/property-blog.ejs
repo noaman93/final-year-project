@@ -1,7 +1,9 @@
 <% include ../partials/header %>
 <div class="container" style="background-color:white; ">
     <h1><span style="font-weight: 800;">Property Blog</span> 
+    <% if(currentUser && currentUser.username =="admin") { %>
     <a href="/property-blog/new" class="btn btn-primary pull-right" style="border-radius:2px;">Create New Blog</a>
+    <% } %>
     </h1>
     
     <hr>
