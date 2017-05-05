@@ -1,36 +1,36 @@
-<% include ../partials/header %>
-<div class="container" style="background-color:white; ">
-    <h1><span style="font-weight: 800;">Property Blog</span> 
+<% include ../partials/header-white-background %>
+
+<div class="blog-header">
+    <p class="blog-header-para">Real Estate Blogs</p>
+    <hr class="blog-hr">
+    <p>PAKISTAN PROPERTY AND REAL ESTATE BLOG BY Makaan.COM</p>
     <% if(currentUser && currentUser.username =="admin") { %>
-    <a href="/property-blog/new" class="btn btn-primary pull-right" style="border-radius:2px;">Create New Blog</a>
+    <a href="/property-blog/new" class="btn btn-success " style="border-radius:2px;margin-left:6em;">Create New Blog</a>
     <% } %>
-    </h1>
-    
-    <hr>
-    <div style="border:5px solid rgba(0, 0, 0, 0.5); border-radius:15px; padding:10px;">
-    <% blog.forEach(function(blogs){ %>
+</div>
+
+
+<div class="container">
+  <% blog.forEach(function(blogs){ %>
+   <div class="blog-body">
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-7">
                 <img src="<%= blogs.image %>" style="width:100%; height:50%;" alt="">
             </div>
         </div><!--row-->
             
         <div class="row">
-            <div class="col-sm-6" style="margin-bottom:10px;">
+            <div class="col-sm-7" style="margin-bottom:10px;margin-left:12px;">
                 <h1 style="font-weight: 700;"><%= blogs.title %></h1>
                 <p><%= blogs.created.toDateString() %></p>
                 <p><%= blogs.body.substring(0,100) %>.....</p>
                 <a href="/property-blog/<%= blogs._id %>" class="btn btn-primary btn-lg" style="border-radius:2px;">Read More <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
             </div>
         </div><!--row-->
-        <hr class="hrBlog">
-    <% }) %>
-    </div>
+   </div>
+   <% }) %>
     
-</div>
-
-
-
+</div><!--container-->
 
 
 <% include ../partials/footer %>

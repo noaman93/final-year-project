@@ -1,0 +1,78 @@
+.blog-header {
+/*
+    background-image: url(../images/blogHeader.jpg);
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+*/
+/*     width: 100%;*/
+    height: 250px;
+    background: /* top, transparent red, faked with gradient */ 
+    linear-gradient(
+      rgba(0, 0, 0, 0.6), 
+      rgba(0, 0, 0, 0.6)
+    ),
+    /* bottom, image */
+    url(../images/blogHeader.jpg);
+}
+
+.blog-header .blog-header-para {
+    color: white;
+    font-weight: 800;
+    font-size: 50px;
+    padding-top: 1.6em; 
+    padding-left: 1.6em; 
+    padding-bottom: 0;
+    margin-bottom:0;
+}
+
+.blog-hr {
+    width: 10%;
+    height: 3px;
+    border: 0;
+    background-color: white;
+    margin-left: 16em;
+    margin-top:0;
+    margin-bottom: 0.5em;
+}
+
+.blog-header p {
+    color: white;
+    padding-left: 11em;
+    font-size: 11px;
+}
+
+.blog-body{
+    margin-top: 15px;
+/*    margin-bottom: 40px;*/
+    background-color: rgba(159, 175, 210, 0.3);
+/*    background-color:#EAEAEA;*/
+}
+
+.hrBlog {
+    height: 1px;
+    border: 0;
+    background-color: dimgray;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
