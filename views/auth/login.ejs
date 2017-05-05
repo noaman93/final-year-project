@@ -1,13 +1,13 @@
 <% include ../partials/header %>
 
-<div class="container login-form-page">
+<div class="container login-form-page" >
    <div class="row">
    <div class="col-md-6 col-sm-offset-2">
-    <div class="well">
+    <div class="well" style="background-color:white;">
     <form action="/login" method="POST">
     <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
-    <div class="form-group"><h1 class="text-center">SIGN IN</h1></div><!--form-group-->
+    <div class="form-group"><h1 class="text-center" style="font-weight:700;">SIGN IN</h1></div><!--form-group-->
     <div class="form-group ">
         <label for="inputEmail">User Name:</label>
         <input type="text" class="form-control" name="username" placeholder="Enter Your User Name" id="inputEmail">
@@ -27,7 +27,7 @@
     <div class="row">
     <div class="col-sm-12 col-sm-offset-2">
     <div class="form-group">
-    <input class="btn btn-primary" type="submit" value="SIGN IN">
+    <input class="btn btn-primary " style="border-radius:5px;" type="submit" value="SIGN IN">
     </div><!--form-group--> 
     </div><!--col--> 
     </div><!--row-->
@@ -39,11 +39,11 @@
 
 <div class="row">
     <div class="col-md-6 col-sm-offset-2">
-        <div class="well">
+        <div class="well" style="background-color:white;">
            <h1>Create New Account</h1>
             <h4>If you are new user and don't have an account <br>
              then click register button to create new account</h4>
-             <a class="btn btn-primary" href="/signup">REGISTER HERE !</a>
+             <a class="btn btn-primary" style="border-radius:5px;" href="/signup">REGISTER HERE !</a>
         </div>
     </div>
 </div>

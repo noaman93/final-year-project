@@ -90,6 +90,19 @@ $( document ).ready(function() {
         
 });
 
+//=========================
+//    property search result
+//=========================
+
+
+$(document).ready(function() {
+    $('.contactOwner').click(function (event) {
+        $(this).addClass('none');
+        $(this).next().removeClass('none');
+        });
+});
+
+
 
 //=========================
 //    property detail slider
@@ -100,10 +113,19 @@ $(document).ready(function() {
 
 
 
+//=========================
+//    Add Property Page
+//=========================
+function myFunction() {
+    document.getElementById("myRadio").required = true;
+    document.getElementById("demo").innerHTML = "The required property was set. The radio button must now be checked before submitting the form.";
+}
+
+
 
 
 //=========================
-//    Pata nhe
+//    Side-Bar
 //=========================
  function htmlbodyHeightUpdate(){
 		var height3 = $( window ).height()

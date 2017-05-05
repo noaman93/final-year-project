@@ -184,6 +184,18 @@ Custom styles
     color: #F49032;
 }
 
+nav.sidebar.navbar {
+    background-color: whitesmoke;
+    color: black;
+}
+.navbar-inverse .navbar-nav>li>a {
+    color: black;
+}
+
+.navbar {
+    border: none;
+}
+
 
 
 

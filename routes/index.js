@@ -148,7 +148,7 @@ router.get("/search", function(req,res){
                 console.log(err);
             } else {
                 if(docs.length == 0){
-                     notFound = "No Property Matches your search";
+                     notFound = "Currently no listed property matches your search parameters";
                 }
 //                console.log(notFound);
 //                res.send(docs);

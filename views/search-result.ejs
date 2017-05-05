@@ -1,14 +1,11 @@
-<% include ./partials/header %>
+<% include ./partials/header-search-result %>
 
 <div class="outer">
 
-<% if(notFound){ %>
-    <h1><%= notFound%></h1>
-<% } %>
-
+<div class="well formOnIndex " style="background-color: rgba(50, 50, 93, 0.88);">
 <div class="container" >
    <div class="row">
-    <div class="well formOnIndex " style="background-color: rgba(34, 34, 34, 0.9);">
+    
         <form action="/search" class="form-horizontal">
            
             <div class="form-group">
@@ -52,7 +49,7 @@
                         <option value="<%= type %>"><%= type %></option>
                         <option value="home">---Residential---</option>
                         <option value="home">Home</option>
-                        <option value="plot">---Plot---</option>
+                        <option value="plot" >---Plot---</option>
                         <option value="plot">Plot</option>
                         <option value="hostel">---Hostel---</option>
                         <option value="hostel">Hostel</option>
@@ -62,40 +59,51 @@
                         <option value="plaza">Plaza</option>
                         <option value="factory">Factory</option>
                     </select>
-                </div><!--col-sm-6-->
+                </div><!--col-sm-2-->
                 
-                <div class="stylishRadio">
-                      <span class="col-md-2 control-label" ><strong>Purpose:</strong> </span>
-               <div class="col-md-4">
-                      <% //if(purpose == "sale"){ %>
-                       <!--<input type="radio" id="radio1" name="purpose" value="sale" checked>
-                       <label for="radio1" style="margin-bottom: 3px;">For SALE</label>-->
-                      <%// } else {%>
-                       <input type="radio" id="radio1" name="purpose" value="sale">
-                       <label for="radio1" style="margin-bottom: 3px;">For SALE</label>
-                      <%// } %>
-                      <%// if(purpose == "rent"){ %>
-                        <!--<input type="radio" id="radio2" name="purpose"value="rent" checked>
-                        <label for="radio2" style="margin-bottom: 3px;">TO RENT</label>-->
-                      <%// } else { %>
-                        <input type="radio" id="radio2" name="purpose"value="rent">
-                        <label for="radio2" style="margin-bottom: 3px;">TO RENT</label>
-                       <%// } %> 
-               </div>
-            </div><!--stylishRadio-->
-                
+                <label for="inputPurpose" class="control-label col-md-2 ">
+                    Purpose:
+                </label>
+                <div class="col-md-2">
+                    <select name="purpose" class="form-control " id="inputPurpose">
+                        <option  value=""><strong>---Select---</strong></option>
+                        <option  value="sale">For Sale</option>
+                        <option  value="rent">To Rent</option>
+                    </select>
+                </div><!--col-sm-2-->
             </div><!--form-group-->  
              
             <div  class="form-group">
-               <div class="col-sm-3 col-sm-offset-2">
-                <button class="control-label btn btn-primary">Search Property</button>
+               
+                <label for="inputLandArea" class="control-label col-md-2" >
+                Land Area:
+                </label>
+                   <div class="col-md-2">
+                    <input type="number" class="form-control" name="landArea" placeholder="Size in Marlas" id="inputLandArea">
+                   </div><!--col-sm-3-->
+            </div> 
+            
+            <div class="form-group">
+                <div class="col-sm-4 search-result-button" >
+                <button class=" btn btn-primary" style="font-weight:700;border-radius:5px;" >Search Property</button>
                 </div>
-                <p style="color:white">More Options</p>
-            </div>      
+            </div>
+                 
         </form>
-    </div><!--formOnIndex-->
+    
     </div><!--row-->
 </div><!--container-->
+</div><!--formOnIndex-->
+
+
+<% if(notFound){ %>
+<div  style="background-color:pink; margin-top:-20px;">
+    <div class="container "  style="background-color:pink;">
+    <h1 style="color:black;font-weight:800;"><%= notFound%></h1>
+</div>
+</div>
+
+<% } %>
 
 <div class="container">
     <div class="row">
@@ -105,7 +113,7 @@
                 <div class="me col-sm-6">
                     <img class="search-image " src="<%= prop.image[0] %>" alt="Here image">
                 </div>
-                <div class="col-sm-6 search-block" >
+                <div class="col-md-6 search-block" >
                      <p class="propTitle"><%= prop.propertyTitle.substring(0,27) %>...</p>
                      <p class="propLocation"><i class="fa fa-map-marker" aria-hidden="true"></i> <%= prop.location.substring(0,41) %>...</p>
                      <% if(prop.purpose == "sale"){%>
@@ -119,7 +127,8 @@
                      <% } %>
                      <p class="propDescription"><%= prop.description.substring(0,100) %>.....</p>
                      <a href="/property/<%= prop._id %>" class="btn btn-primary">More Details</a>
-                     <a href="#" class="btn btn-primary pull-right contactOwner">Contact Owner</a>
+                     <span class="btn btn-primary pull-right contactOwner" style="border-radius:3px;">Contact Owner</span>
+                     <span class="pull-right none mobileNumber" style="font-weight:800;"><%=prop.ownerDetails.mobileNumber%></span>
                      
                 </div>
                 <p class="date pull-right">Posted On:<%= prop.created.toDateString() %></p>
