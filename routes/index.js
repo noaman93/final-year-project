@@ -38,6 +38,11 @@ router.get("/property/new", middleware.isLoggedIn, function(req,res){
     res.render("new-property", {title: title});
 });
 
+//error checking
+router.get("/prop", function(req,res){
+    res.send("Ab sahi hai");
+});
+
 
 //CREATE NEW PROPERTY
 router.post("/property", function(req,res){
